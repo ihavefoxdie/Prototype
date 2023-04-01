@@ -21,12 +21,11 @@ namespace MinorClasses
         }
         public IMug DeepCopy()
         {
-            LargeMug clone = this.MemberwiseClone() as LargeMug;
-            clone.MugSize = new()
+            LargeMug clone = new(MugSize.Height, MugSize.Radius)
             {
-                Height = this.MugSize.Height,
-                Radius = this.MugSize.Radius
+                Empty = this.Empty
             };
+
             return clone;
         }
         public void Drink()

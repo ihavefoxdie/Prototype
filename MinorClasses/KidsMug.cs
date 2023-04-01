@@ -11,10 +11,12 @@ namespace MinorClasses
         {
             Empty = false;
             Size = 5;
-            Color = new();
-            Color.R = r;
-            Color.G = g;
-            Color.B = b;
+            Color = new()
+            {
+                R = r,
+                G = g,
+                B = b
+            };
         }
         public int Size { get; set; }
         public bool Empty { get; set; }
@@ -24,13 +26,11 @@ namespace MinorClasses
         }
         public IMug DeepCopy()
         {
-            KidsMug clone = MemberwiseClone() as KidsMug;
-            clone.Color = new()
+            KidsMug clone = new(Color.R, Color.G, Color.B)
             {
-                R = Color.R,
-                G = Color.G,
-                B = Color.B
+                Empty = this.Empty
             };
+
             return clone;
         }
 
